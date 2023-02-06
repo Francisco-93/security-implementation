@@ -66,8 +66,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilterBefore(new TokenAuthenticationFilter(tokenService, repository), UsernamePasswordAuthenticationFilter.class)
 
                 .authorizeHttpRequests()
-                .antMatchers(HttpMethod.GET, "/hello/user").hasAnyRole("ADMINISTRADOR")
-                .antMatchers(HttpMethod.GET, "/hello/admin").hasAnyRole("USUARIO")
+                .antMatchers(HttpMethod.GET, "/hello/user").hasAnyRole(PerfilEnum.ADMIN.getNome())
+                .antMatchers(HttpMethod.GET, "/hello/admin").hasAnyRole(PerfilEnum.USER.getNome())
                 .antMatchers(freeUrls).permitAll();
     }
 

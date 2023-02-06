@@ -21,6 +21,10 @@ public enum PerfilEnum {
         return descricao;
     }
 
+    public String getNome(){
+        return getDescricao().substring(5);
+    }
+
     public static PerfilEnum toEnum(Integer cod) {
         for(PerfilEnum e : PerfilEnum.values()) {
             if(e.getCod() == cod) {
